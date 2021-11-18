@@ -19,6 +19,6 @@
   "homepage": "https://github.com/micahwaweru/homework12.2#readme",
   "dependencies": {
     "inquirer": "^8.2.0",
-    "mysql2": "^2.3.3"
+    "sequelize": "^6.9.0"
   }
 }
