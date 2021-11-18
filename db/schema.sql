@@ -1,10 +1,10 @@
 DROP DATABASE IF EXISTS staff_db;
 CREATE DATABASE staff_db;
 
-DROP TABLE IF EXISTS department;
 
 
-CREATE TABLE department (
+
+CREATE TABLE team (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50) NOT NULL
 );
@@ -16,7 +16,7 @@ CREATE TABLE role (
   salary DECIMAL UNSIGNED NOT NULL,
   department_id INT UNSIGNED NOT NULL,
   INDEX dep_ind (department_id),
-  CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
+  CONSTRAINT fk_team FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS employee;
