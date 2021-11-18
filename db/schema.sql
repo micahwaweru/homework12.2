@@ -14,14 +14,14 @@ CREATE TABLE role (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL UNSIGNED NOT NULL,
-  department_id INT UNSIGNED NOT NULL,
-  INDEX dep_ind (department_id),
-  CONSTRAINT fk_team FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
+  team_id INT UNSIGNED NOT NULL,
+  INDEX dep_ind (team_id),
+  CONSTRAINT fk_team FOREIGN KEY (team_id) REFERENCES department(id) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS employee;
 CREATE TABLE employee (
-    id INTEGER AUTO_INCREMENT,
+  id INTEGER AUTO_INCREMENT,
   first_name VARCHAR(30),
   last_name VARCHAR (30),
   role_id INTEGER (10),
