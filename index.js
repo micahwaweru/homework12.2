@@ -41,6 +41,13 @@ inquirer
 
   var firstFunction= function(){
       console.log('Fisrt function triggered');
+      db.query('SELECT * FROM team',function(err,results){
+          //console.log(results);
+          for(i=0;i<results.length;i++){
+              console.log(results[i].name);
+          }
+          
+      })
 
   }
 
