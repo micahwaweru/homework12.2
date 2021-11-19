@@ -31,4 +31,4 @@ VALUES
     ('Nick', 'Thomas', 5, NULL),
     ('Ed', 'Helms', 6, 5),
     ('Angela', 'Martin', 7, NULL),
-    ('Oscar', 'Martinez', 7, 8);
+    ('Oscar', 'Martinez', 8, 7);
