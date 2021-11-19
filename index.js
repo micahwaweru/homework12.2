@@ -82,7 +82,7 @@ inquirer
 
   var viewEmployees=function(){
     console.log('view employees selected');
-    db.query('SELECT * FROM employee',function(err,results){
+    db.query('SELECT employee.id, employee.first_name, employee.last_name, role.title, team.name AS team, role.salary, manager.first_name AS manager FROM employee LEFT JOIN role on employee.role_id = role.id LEFT JOIN team on role.team_id = team.id LEFT JOIN employee manager on manager.id = employee.manager_id;',function(err,results){
         console.log('\n')
         console.table(results)
     })
