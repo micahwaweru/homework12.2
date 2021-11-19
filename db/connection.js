@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+const mysql = require('mysql2');
 require('dotenv').config();
 
 const sql = new Sequelize(

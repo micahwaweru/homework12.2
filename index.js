@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const db = require('./db/connection')
 
 inquirer
   .prompt([
@@ -40,6 +41,7 @@ inquirer
 
   var firstFunction= function(){
       console.log('Fisrt function triggered');
+
   }
 
   var secondFunction=function(){
