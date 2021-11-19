@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const db = require('./db/connection')
+require('console.table');
 
 
 
@@ -63,10 +64,8 @@ inquirer
   var displayTeams= function(){
       //console.log('Fisrt function triggered');
       db.query('SELECT * FROM team',function(err,results){
-          console.log('\m');
-          for(i=0;i<results.length;i++){
-              console.log(results[i].name);
-          }
+            console.log('\n')
+            console.table(results)
           
       })
       cli();
@@ -75,10 +74,8 @@ inquirer
   var viewRoles=function(){
       console.log('Second function triggered');
       db.query('SELECT * FROM role',function(err,results){
-          console.log('\n');
-        for(i=0;i<results.length;i++){
-              console.log(results[i].title);
-          }
+        console.log('\n')
+        console.table(results)
       })
       cli();
   }
@@ -86,10 +83,8 @@ inquirer
   var viewEmployees=function(){
     console.log('view employees selected');
     db.query('SELECT * FROM employee',function(err,results){
-        console.log('\n');
-        for(i=0;i<results.length;i++){
-            console.log(results[i].first_name + ' ' + results[i].last_name)
-        }
+        console.log('\n')
+        console.table(results)
     })
     cli();
   }
