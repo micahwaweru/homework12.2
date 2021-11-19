@@ -1,6 +1,12 @@
 const inquirer = require('inquirer');
 const db = require('./db/connection')
 
+
+
+
+
+
+var cli = function(){
 inquirer
   .prompt([
     {
@@ -9,12 +15,20 @@ inquirer
       name: 'selection',
       choices:[
         {
-            name: 'First option',
-            value: 'firstOption!'
+            name: 'View Teams',
+            value: 'viewTeams'
         },
         {
-            name: 'Second option',
-            value: 'secondOption!'
+            name: 'View Roles',
+            value: 'viewRoles'
+        },
+        {
+            name: 'View Employees',
+            value: 'viewEmployees'
+        },
+        {
+            name:'Close App',
+            value:'close'
         }
       ]
     },
@@ -24,11 +38,17 @@ inquirer
     console.log(response.selection);
     
     switch(response.selection){
-        case 'firstOption!':
-            firstFunction();
+        case 'viewTeams':
+            displayTeams();
             break;
-        case 'secondOption!S':
-            secondFunction();
+        case 'viewRoles':
+            viewRoles();
+            break;
+        case 'viewEmployees':
+            viewEmployees();
+            break;
+        case 'close':
+            closeApp();
             break;
         default:
             console.log('Default')
@@ -38,19 +58,50 @@ inquirer
     }
     
   );
+}
 
-  var firstFunction= function(){
-      console.log('Fisrt function triggered');
+  var displayTeams= function(){
+      //console.log('Fisrt function triggered');
       db.query('SELECT * FROM team',function(err,results){
-          //console.log(results);
+          console.log('\m');
           for(i=0;i<results.length;i++){
               console.log(results[i].name);
           }
           
       })
-
+      cli();
   }
 
-  var secondFunction=function(){
+  var viewRoles=function(){
       console.log('Second function triggered');
+      db.query('SELECT * FROM role',function(err,results){
+          console.log('\n');
+        for(i=0;i<results.length;i++){
+              console.log(results[i].title);
+          }
+      })
+      cli();
   }
+
+  var viewEmployees=function(){
+    console.log('view employees selected');
+    db.query('SELECT * FROM employee',function(err,results){
+        console.log('\n');
+        for(i=0;i<results.length;i++){
+            console.log(results[i].first_name + ' ' + results[i].last_name)
+        }
+    })
+    cli();
+  }
+
+
+var closeApp = function(){
+    process.exit();
+}
+
+
+
+  var start = function(){
+    cli();
+}
+start();
