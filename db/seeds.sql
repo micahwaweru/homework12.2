@@ -7,7 +7,8 @@ VALUES
     ('HR'),
     ('Marketing'),
     ('IT'),
-    ('Accounting');
+    ('Accounting'),
+    ('Management');
 
 INSERT INTO role
     (title, salary, team_id)
@@ -19,7 +20,8 @@ VALUES
     ('IT Manager', 150000,3),
     ('IT Tech', 50000,3),
     ('Accounting Manager', 300000, 4),
-    ('Accountant', 300000, 4);
+    ('Accountant', 300000, 4),
+    ('Regional Manager', 500000, 5);
 
 INSERT INTO employee
     (first_name, last_name, role_id, manager_id)
@@ -31,4 +33,5 @@ VALUES
     ('Nick', 'Thomas', 5, NULL),
     ('Ed', 'Helms', 6, 5),
     ('Angela', 'Martin', 7, NULL),
-    ('Oscar', 'Martinez', 8, 7);
+    ('Oscar', 'Martinez', 8, 7),
+    ('Michael', 'Scott', 9, NULL);

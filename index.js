@@ -73,6 +73,7 @@ inquirer
             break;
         case 'createEmployee':
             createEmployee();
+            break;
         case 'updateEmployee':
             updateEmployee();
             break;
@@ -161,7 +162,7 @@ var createRole = function(results){
     ])
     .then(response=>{
         console.log(response.roleName, response.roleSalary, response.roleTeam)
-        db.query(`INSERT INTO role (title, salary, team_id) VALUES('${response.roleName}',${response.roleSalary},${response.roleTeam}`, function(err){
+        db.query(`INSERT INTO role (title, salary, team_id) VALUES('${response.roleName}',${response.roleSalary},${response.roleTeam})`, function(err){
             console.log('Error' + err);
             cli();
         });
@@ -210,7 +211,7 @@ var createEmployee = function(results){
     ])
     .then(response=>{
         //console.log(response.roleName, response.roleSalary, response.roleTeam)
-        db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES('${response.firstName}', '${response.lastName}', ${response.roleId}, ${response.manId}`, function(err){
+        db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES('${response.firstName}', '${response.lastName}', ${response.roleId}, ${response.manId})`, function(err){
             console.log('Error' + err);
             cli();
         });
