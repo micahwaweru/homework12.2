@@ -2,6 +2,9 @@ DROP DATABASE IF EXISTS staff_db;
 CREATE DATABASE staff_db;
 
 
+use staff_db;
+
+
 
 DROP TABLE IF EXISTS team;
 CREATE TABLE team (
